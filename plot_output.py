@@ -413,10 +413,8 @@ def plot_nz(nzs1, zs1, nzl1, zl1, nzs2, zs2, nzl2, zl2, nrow, ncol, outname):
 if __name__ == "__main__":
 
     # Path to the data vectors
-    #wlpipe_outpath='/data/des61.b/data/mariaeli/demo_scott/output/'
-    #desy1_outpath = '/data/des61.b/data/mwang/data/DES/Y1/data_vectors/'
-    wlpipe_outpath='/Users/maria/current-work/wlpipe/'
-    desy1_outpath = '/Users/maria/current-work/wlpipe/'
+    wlpipe_outpath='/data/des61.b/data/mariaeli/demo_scott/output/'
+    desy1_outpath = '/data/des61.b/data/mwang/data/DES/Y1/data_vectors/'
 
     # Plotting xip, bin1==bin2
     y1_xip_dvect, xip_bin1, _ = get_fits(desy1_outpath, '2pt_NG_1101.fits', 2)
