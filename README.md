@@ -12,3 +12,8 @@ Then, run:
 ```bash
 python plot_output.py
 ```
+and 
+
+```bash
+python compare_output.py
+```
