@@ -100,9 +100,14 @@ if __name__ == "__main__":
     wlpipe_outpath='/Users/maria/current-work/wlpipe/'
     desy1_outpath = '/Users/maria/current-work/wlpipe/'
 
+
+    wlpipe_filename = 'desy1_dvect_add.blinded.fits' #'desy1_dvect.fits' #
+    desy1_filename  = '2pt_NG_1101_add.blinded.fits' #'2pt_NG_1101.fits' # 
+
+
     # xi_plus checking
-    y1_xip_dvect, _, _ = get_fits(desy1_outpath, '2pt_NG_1101.fits', 2)
-    wl_xip_dvect, _, _ = get_fits(wlpipe_outpath, 'desy1_dvect.fits', 2)
+    y1_xip_dvect, _, _ = get_fits(desy1_outpath, desy1_filename, 2)
+    wl_xip_dvect, _, _ = get_fits(wlpipe_outpath, wlpipe_filename, 2)
 
     dvector_comparison(y1_xip_dvect['ANG'], wl_xip_dvect['ANG'],
                        y1_xip_dvect['VALUE'], wl_xip_dvect['VALUE'],
@@ -112,8 +117,8 @@ if __name__ == "__main__":
                        'xi_plus')
 
     # xi_minus checking
-    y1_xim_dvect, _, _ = get_fits(desy1_outpath, '2pt_NG_1101.fits', 3)
-    wl_xim_dvect, _, _ = get_fits(wlpipe_outpath, 'desy1_dvect.fits', 3)
+    y1_xim_dvect, _, _ = get_fits(desy1_outpath, desy1_filename, 3)
+    wl_xim_dvect, _, _ = get_fits(wlpipe_outpath, wlpipe_filename, 3)
 
     dvector_comparison(y1_xim_dvect['ANG'], wl_xim_dvect['ANG'],
                        y1_xim_dvect['VALUE'], wl_xim_dvect['VALUE'],
@@ -123,8 +128,8 @@ if __name__ == "__main__":
                        'xi_minus')
 
     # gamma_t checking
-    y1_gammat_dvect, _, _ = get_fits(desy1_outpath, '2pt_NG_1101.fits', 4)
-    wl_gammat_dvect, _, _ = get_fits(wlpipe_outpath, 'desy1_dvect.fits', 4)
+    y1_gammat_dvect, _, _ = get_fits(desy1_outpath, desy1_filename, 4)
+    wl_gammat_dvect, _, _ = get_fits(wlpipe_outpath, wlpipe_filename, 4)
     dvector_comparison(y1_gammat_dvect['ANG'], wl_gammat_dvect['ANG'],
                        y1_gammat_dvect['VALUE'], wl_gammat_dvect['VALUE'],
                        2, 5,
@@ -133,8 +138,8 @@ if __name__ == "__main__":
                        'gamma_t')
 
     # w checking
-    y1_w_dvect, _, _ = get_fits(desy1_outpath, '2pt_NG_1101.fits', 5)
-    wl_w_dvect, _, _ = get_fits(wlpipe_outpath, 'desy1_dvect.fits', 5)
+    y1_w_dvect, _, _ = get_fits(desy1_outpath, desy1_filename, 5)
+    wl_w_dvect, _, _ = get_fits(wlpipe_outpath, wlpipe_filename, 5)
     dvector_comparison(y1_w_dvect['ANG'], wl_w_dvect['ANG'],
                        y1_w_dvect['VALUE'], wl_w_dvect['VALUE'],
                        2, 4,
@@ -143,8 +148,8 @@ if __name__ == "__main__":
                        'w')
 
     # nzsource checking
-    y1_nzsource_dvect, _, _ = get_fits(desy1_outpath, '2pt_NG_1101.fits', 6)
-    wl_nzsource_dvect, _, _ = get_fits(wlpipe_outpath, 'desy1_dvect.fits', 6)
+    y1_nzsource_dvect, _, _ = get_fits(desy1_outpath, desy1_filename, 6)
+    wl_nzsource_dvect, _, _ = get_fits(wlpipe_outpath, wlpipe_filename, 6)
 
     dvector_comparison(y1_nzsource_dvect['Z_MID'], wl_nzsource_dvect['Z_MID'],
                        y1_nzsource_dvect['BIN1'], wl_nzsource_dvect['BIN1'],
@@ -175,8 +180,8 @@ if __name__ == "__main__":
                        'nz_source_bin4')
 
     # nzlens checking
-    y1_nzlens_dvect, _, _ = get_fits(desy1_outpath, '2pt_NG_1101.fits', 7)
-    wl_nzlens_dvect, _, _ = get_fits(wlpipe_outpath, 'desy1_dvect.fits', 7)
+    y1_nzlens_dvect, _, _ = get_fits(desy1_outpath, desy1_filename, 7)
+    wl_nzlens_dvect, _, _ = get_fits(wlpipe_outpath, wlpipe_filename, 7)
 
     dvector_comparison(y1_nzlens_dvect['Z_MID'], wl_nzlens_dvect['Z_MID'],
                        y1_nzlens_dvect['BIN1'], wl_nzlens_dvect['BIN1'],

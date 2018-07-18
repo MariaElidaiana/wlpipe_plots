@@ -413,29 +413,36 @@ def plot_nz(nzs1, zs1, nzl1, zl1, nzs2, zs2, nzl2, zl2, nrow, ncol, outname):
 if __name__ == "__main__":
 
     # Path to the data vectors
-    wlpipe_outpath='/data/des61.b/data/mariaeli/demo_scott/output/'
-    desy1_outpath = '/data/des61.b/data/mwang/data/DES/Y1/data_vectors/'
+    #wlpipe_outpath='/data/des61.b/data/mariaeli/demo_scott/output/'
+    #desy1_outpath = '/data/des61.b/data/mwang/data/DES/Y1/data_vectors/'
+    wlpipe_outpath='/Users/maria/current-work/wlpipe/'
+    desy1_outpath = '/Users/maria/current-work/wlpipe/'
+    
+    wlpipe_filename = 'desy1_dvect_add.blinded.fits' #'desy1_dvect.fits'
+    desy1_filename  = '2pt_NG_1101_add.blinded.fits' #'2pt_NG_1101.fits'
 
     # Plotting xip, bin1==bin2
-    y1_xip_dvect, xip_bin1, _ = get_fits(desy1_outpath, '2pt_NG_1101.fits', 2)
-    wl_xip_dvect, _, _ = get_fits(wlpipe_outpath, 'desy1_dvect.fits', 2)
+    y1_xip_dvect, xip_bin1, _ = get_fits(desy1_outpath, desy1_filename, 2)
+    wl_xip_dvect, _, _ = get_fits(wlpipe_outpath, wlpipe_filename, 2)
+    
+    
     xi_nrow = len(xip_bin1)
     xi_nidx = [1,2,3,4,5,6,7,9,10,11,13]
     xi_binning = [(0,3), (1,3), (2,3), (3,3), (0,2), (1,2), (2,2), (0,1), (1,1), (0,0), (0,0)]
     
     plot_xi(y1_xip_dvect, wl_xip_dvect, xip_bin1, xi_nrow, xi_nidx, xi_binning, r'$\xi_{+}(\theta)$',
-            r'shear-shear $\xi_{+}$'+'\n\n'+'points=WLpipe'+'\n', 'desy1_xip.png')
+            r'shear-shear $\xi_{+}$'+'\n\n'+'points=WLpipe'+'\n', 'desy1_xip_blinding.png')
 
     # Plotting xim, bin1==bin2
-    y1_xim_dvect, xim_bin1, _ = get_fits(desy1_outpath, '2pt_NG_1101.fits', 3)
-    wl_xim_dvect, _, _ = get_fits(wlpipe_outpath, 'desy1_dvect.fits', 3)
+    y1_xim_dvect, xim_bin1, _ = get_fits(desy1_outpath, desy1_filename, 3)
+    wl_xim_dvect, _, _ = get_fits(wlpipe_outpath, wlpipe_filename, 3)
     
     plot_xi(y1_xim_dvect, wl_xim_dvect, xim_bin1, xi_nrow, xi_nidx, xi_binning, r'$\xi_{-}(\theta)$',
-            r'shear-shear $\xi_{-}$'+'\n\n'+'points=WLpipe'+'\n', 'desy1_xim.png')
+            r'shear-shear $\xi_{-}$'+'\n\n'+'points=WLpipe'+'\n', 'desy1_xim_blinding.png')
 
     # Plotting gammat, bin1!=bin2
-    y1_gammat_dvect, gammat_bin1, gammat_bin2 = get_fits(desy1_outpath, '2pt_NG_1101.fits', 4)
-    wl_gammat_dvect, _, _ = get_fits(wlpipe_outpath, 'desy1_dvect.fits', 4)
+    y1_gammat_dvect, gammat_bin1, gammat_bin2 = get_fits(desy1_outpath, desy1_filename, 4)
+    wl_gammat_dvect, _, _ = get_fits(wlpipe_outpath, wlpipe_filename, 4)
     gammat_ncol = len(gammat_bin1)
     gammat_nrow = len(gammat_bin2)
     gammat_nidx = range(1,21)
@@ -445,26 +452,26 @@ if __name__ == "__main__":
             gammat_binning.append((j,i))
 
     plot_gammat(y1_gammat_dvect, wl_gammat_dvect, gammat_nrow, gammat_ncol, gammat_nidx, gammat_binning,
-                r'$\theta \, \gamma_{t}\,$'+r'($10^{-2}$ arcmin)', 'desy1_gammat.png')
+                r'$\theta \, \gamma_{t}\,$'+r'($10^{-2}$ arcmin)', 'desy1_gammat_blinding.png')
 
     # Plotting w, bin1==bin2
-    y1_w_dvect, w_bin1, _ = get_fits(desy1_outpath, '2pt_NG_1101.fits', 5)
-    wl_w_dvect, _, _ = get_fits(wlpipe_outpath, 'desy1_dvect.fits', 5)
+    y1_w_dvect, w_bin1, _ = get_fits(desy1_outpath, desy1_filename, 5)
+    wl_w_dvect, _, _ = get_fits(wlpipe_outpath, wlpipe_filename, 5)
     w_nrow = 2
     w_ncol = 3
     w_binning = [(i,i) for i in range(1,6)] + [(5,5)]
     w_nidx = range(1,7)
 
     plot_w(y1_w_dvect, wl_w_dvect, w_nrow, w_ncol, w_nidx, w_binning, r'$\theta \,w \,$'+r'(arcmin)',
-           r'galaxy-galaxy $w(\theta)$'+'\n\n'+'points=WLpipe'+'\n', 'desy1_w.png')
+           r'galaxy-galaxy $w(\theta)$'+'\n\n'+'points=WLpipe'+'\n', 'desy1_w_blinding.png')
 
     # Getting nz_source, bin1==bin2
-    y1_nzsource_dvect, nzsource_bin1, _ = get_fits(desy1_outpath, '2pt_NG_1101.fits', 6)
-    wl_nzsource_dvect, _, _ = get_fits(wlpipe_outpath, 'desy1_dvect.fits', 6)
+    y1_nzsource_dvect, nzsource_bin1, _ = get_fits(desy1_outpath, desy1_filename, 6)
+    wl_nzsource_dvect, _, _ = get_fits(wlpipe_outpath, wlpipe_filename, 6)
 
     # Getting nz_lens, bin1==bin2
-    y1_nzlens_dvect, nzlens_bin1, _ = get_fits(desy1_outpath, '2pt_NG_1101.fits', 7)
-    wl_nzlens_dvect, _, _ = get_fits(wlpipe_outpath, 'desy1_dvect.fits', 7)
+    y1_nzlens_dvect, nzlens_bin1, _ = get_fits(desy1_outpath, desy1_filename, 7)
+    wl_nzlens_dvect, _, _ = get_fits(wlpipe_outpath, wlpipe_filename, 7)
 
     # Plotting n(z)
     y1_zs1, y1_zs2, y1_zs3, y1_bs1, y1_bs2, y1_bs3, y1_bs4, y1_bs5 = get_nz_values(y1_nzsource_dvect)
@@ -475,7 +482,7 @@ if __name__ == "__main__":
 
     plot_nz([y1_bs1, y1_bs2, y1_bs3, y1_bs4], y1_zs2, [y1_bl1, y1_bl2, y1_bl3, y1_bl4, y1_bl5], y1_zl2,
             [wl_bs1, wl_bs2, wl_bs3, wl_bs4], wl_zs2, [wl_bl1, wl_bl2, wl_bl3, wl_bl4, wl_bl5], wl_zl2,
-            2, 1, 'desy1_dndz.png')
+            2, 1, 'desy1_dndz_blinding.png')
 
 
 
